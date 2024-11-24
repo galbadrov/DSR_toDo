@@ -6,7 +6,7 @@ if (isset($_POST['name'], $_POST['surname'], $_POST['email'], $_POST['username_r
     $surname = $_POST['surname'];
     $email = $_POST['email'];
     $username_register = $_POST['username_register'];
-    $passwordregister = password_hash($_POST['passwordregister'], PASSWORD_DEFAULT); // Hashiranje gesla
+    $passwordregister = $_POST['passwordregister'];
 
     try {
         $sql = "INSERT INTO Uporabnik (ime, priimek, gmail, geslo, uporabniskoIme) VALUES (:name, :surname, :email, :password, :username)";
@@ -18,9 +18,8 @@ if (isset($_POST['name'], $_POST['surname'], $_POST['email'], $_POST['username_r
         $stmt->bindParam(':password', $passwordregister);
         $stmt->execute();
 
-        echo "Registracija uspešna!";
         header("Location: ../frontend/html/main.php");
-        
+        exit;
     } catch (PDOException $e) {
         echo "Napaka: " . $e->getMessage();
     }
