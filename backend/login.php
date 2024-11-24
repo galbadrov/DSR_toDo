@@ -1,18 +1,24 @@
-<?php include '../../backend/baza.php'; ?>
-<?php  
+<?php
+    include 'baza.php';
+
     if(isset($_POST['username']) && isset($_POST['password'])) {
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        $sql = "SELECT * FROM Uporabnik WHERE uporabniskoIme = '$username' AND geslo = '$password'";
-        $result = $db->query($sql);
+        $sql = "SELECT * FROM Uporabnik WHERE uporabniskoIme = :username AND geslo = :password";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':password', $password);
+        $stmt->execute();
 
-        if($result->rowCount() > 0) {
+        if($stmt->rowCount() > 0) {
             session_start();
             $_SESSION['username'] = $username;
-            print_r("Prijava uspesna. Pozdravljeni $username!");
+            header("Location: http://localhost:8888/frontend/html/main.php");
+            exit; 
         }else {
-            echo("Napacno uporabnisko ime ali geslo!"); 
+            header("Location: http://localhost:8888/frontend/html/index.php");
+            exit;
         }
     }
 ?>

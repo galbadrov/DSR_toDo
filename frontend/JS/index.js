@@ -151,11 +151,11 @@ function shrani1() {
 }
 
 //------posiljanje login samo ob pritisku gumba------
-/*const form = document.getElementById('form_login');
+const form = document.getElementById('form_login');
 
 form.addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent the default submission
-    form.action = 'login.php'; // Dynamically set the action
+    form.action = 'http://localhost:8888/backend/login.php'; 
     form.submit(); // Manually submit the form
 });
 
@@ -163,8 +163,8 @@ form.addEventListener('submit', function (event) {
 //------posiljanje register samo ob pritisku gumba------
 const form2 = document.getElementById('form_register');
 
-form.addEventListener('submit', function (event) {
+form2.addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent the default submission
-    form.action = 'register.php'; // Dynamically set the action
-    form.submit(); // Manually submit the form
-});*/
+    form2.action = 'http://localhost:8888/backend/login.php';
+    form2.submit(); // Manually submit the form
+});

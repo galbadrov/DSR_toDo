@@ -1,4 +1,5 @@
-<!-- ce vkljucim backend/baza se stran nena prikaze -->
+<!-- za zagon spletne strani: http://localhost:8888/frontend/html/[index.PHP] -->
+<!-- za pregled backend aplikacij: http://localhost:8888/backend/[baza.php] -->
 <?php include '../../backend/baza.php'; ?>
 
 <!DOCTYPE html>
@@ -38,7 +39,6 @@
             </form>
             <button class="login-button-unselected" id="login-button-unselected" onclick="shrani1()">LOG IN</button>
         </div>
-        </form>
 
         <div class="register-unselected" id="register">
             <form method="POST" class="form_register" id="form_register">
@@ -47,7 +47,7 @@
                 <input type="text" class="input_register" id="name"></input>
 
                 <label class="label_login" id="label_surname_r">Surname:</label>
-                <input type="password" class="input_register" id="surname"></input>
+                <input type="text" class="input_register" id="surname"></input>
 
                 <label class="label_login" id="label_email_r">Email:</label>
                 <input type="email" class="input_register" id="email"></input>
