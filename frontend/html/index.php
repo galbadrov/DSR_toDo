@@ -28,8 +28,8 @@
         <div class="login-selected" id="login">
             <form method="POST" class="form_login" id="form_login" action="../../backend/login.php">
                 <p class="naslov_login" id="naslov_login">LOG IN</p>
-                <label class="label_login" id="label_username" name="username">Username:</label>
-                <input type="text" class="input_login" id="username"></input>
+                <label class="label_login" id="label_username">Username:</label>
+                <input type="text" class="input_login" id="username" name="username"></input>
 
                 <label class="label_login" id="label_password">Password:</label>
                 <input type="password" class="input_login" id="password" name="password"></input>

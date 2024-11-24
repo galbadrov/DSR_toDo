@@ -5,12 +5,16 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
 
+        try{
         $sql = "SELECT * FROM Uporabnik WHERE uporabniskoIme = :username AND geslo = :password";
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':username', $username);
         $stmt->bindParam(':password', $password);
         $stmt->execute();
-
+        }catch (PDOException $e) {
+            echo "Napaka: " . $e->getMessage();
+        }
+        
         if($stmt->rowCount() > 0) {
             session_start();
             $_SESSION['username'] = $username;
