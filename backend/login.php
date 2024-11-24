@@ -1,7 +1,7 @@
 <?php
     include 'baza.php';
 
-    if(isset($_POST['username']) && isset($_POST['password'])) {
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $username = $_POST['username'];
         $password = $_POST['password'];
 

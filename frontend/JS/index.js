@@ -155,7 +155,6 @@ const form = document.getElementById('form_login');
 
 form.addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent the default submission
-    form.action = 'http://localhost:8888/backend/login.php'; 
     form.submit(); // Manually submit the form
 });
 
@@ -165,6 +164,5 @@ const form2 = document.getElementById('form_register');
 
 form2.addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent the default submission
-    form2.action = 'http://localhost:8888/backend/register.php';
     form2.submit(); // Manually submit the form
 });

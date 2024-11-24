@@ -1,7 +1,8 @@
-<?php 
-include 'baza.php';
+<?php
+require 'baza.php';
 
-if (isset($_POST['name'], $_POST['surname'], $_POST['email'], $_POST['username_register'], $_POST['passwordregister'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
     $name = $_POST['name'];
     $surname = $_POST['surname'];
     $email = $_POST['email'];
@@ -18,12 +19,10 @@ if (isset($_POST['name'], $_POST['surname'], $_POST['email'], $_POST['username_r
         $stmt->bindParam(':password', $passwordregister);
         $stmt->execute();
 
-        header("Location: ../frontend/html/main.php");
-        exit;
+        header("Location: http://localhost:8888/frontend/html/index.php");
     } catch (PDOException $e) {
         echo "Napaka: " . $e->getMessage();
     }
 } else {
     echo "Podatki niso popolni!";
 }
-?>
