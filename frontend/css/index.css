@@ -141,7 +141,7 @@ footer{
 .login-unselected{
     background-color: black;
     width:50%;
-    flex-direction: column;
+    display:flex;
     align-items: center;
     justify-content: center;
     transition: 0.7s ease;

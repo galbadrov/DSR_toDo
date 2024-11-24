@@ -56,13 +56,14 @@ function izbira_prijave() {
 
     // Elementi prijave
     let login = document.getElementById("login");
+    let form_login = document.getElementById("form_login");
     let naslov_login = document.getElementById("naslov_login");
     let username_login = document.getElementById("username");
     let label_username_login = document.getElementById("label_username");
     let password_login = document.getElementById("password");
     let label_password_login = document.getElementById("label_password");
     let loginButton_selected = document.getElementById("login_submit");
-    let form_login = document.getElementById("form_login");
+
 
     if (izbira == 1) {
         // Skrij registracijo
@@ -91,7 +92,9 @@ function izbira_prijave() {
         password_login.style.display = "block";
         label_password_login.style.display = "block";
         loginButton_selected.style.display = "block";
-        form_login.style.display = "block";
+        if (form_login) {
+            form_login.style.display = "flex";
+        }
 
         login.classList.add("login-selected");
         login.classList.remove("login-unselected");
@@ -124,27 +127,31 @@ function izbira_prijave() {
         password_reg.style.display = "block";
         label_password_reg.style.display = "block";
         registerButton_selected.style.display = "block";
-        form_register.style.display = "block";
+        if (form_register) {
+            form_register.style.display = "flex";
+        }
 
         register.classList.add("register-selected");
         register.classList.remove("register-unselected");
         register_button_unselected.style.display = "none";
     }
+    console.log("izvedena je bila izbira prijave");
 }
 
 function shrani2() {
     let izbira = 2;
     localStorage.setItem("izbira prijave: ", izbira);
+    izbira_prijave();
 }
 
 function shrani1() {
     let izbira = 1;
     localStorage.setItem("izbira prijave: ", izbira);
-
+    izbira_prijave();
 }
 
 //------posiljanje login samo ob pritisku gumba------
-const form = document.getElementById('mylogin');
+/*const form = document.getElementById('form_login');
 
 form.addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent the default submission
@@ -154,10 +161,10 @@ form.addEventListener('submit', function (event) {
 
 
 //------posiljanje register samo ob pritisku gumba------
-const form2 = document.getElementById('myregister');
+const form2 = document.getElementById('form_register');
 
 form.addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent the default submission
     form.action = 'register.php'; // Dynamically set the action
     form.submit(); // Manually submit the form
-});
+});*/

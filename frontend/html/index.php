@@ -1,3 +1,4 @@
+<!-- ce vkljucim backend/baza se stran nena prikaze -->
 <?php include '../../backend/baza.php'; ?>
 
 <!DOCTYPE html>
@@ -10,21 +11,21 @@
     <title>TaskNest</title>
 </head>
 
-<body onload="izbira_prijave()">
+<body onload="shrani1()">
     <header>
         <p>ABOUT US</p>
     </header>
 
     <div class="container">
-        <p id="naslov" class="title">TaskNest</h1>
+        <p id="naslov" class="title">TaskNest</p>
     </div>
     <p id="moto" class="moto_prescroll">The only way out is through.</p>
     <hr class="under_moto">
 
     <div class="login-reg">
 
-        <div class="" id="login">
-            <form id="mylogin" method="POST" class="form_login">
+        <div class="login-selected" id="login">
+            <form method="POST" class="form_login" id="form_login">
                 <p class="naslov_login" id="naslov_login">LOG IN</p>
                 <label class="label_login" id="label_username">Username:</label>
                 <input type="text" class="input_login" id="username"></input>
@@ -33,13 +34,14 @@
                 <input type="password" class="input_login" id="password"></input>
 
                 <button type="submit" class="login_button" id="login_submit">LOG IN</button>
-                <button class="login-button-unselected" id="login-button-unselected" onclick="shrani1(), izbira_prijave()">LOG IN</button>
+                
             </form>
+            <button class="login-button-unselected" id="login-button-unselected" onclick="shrani1()">LOG IN</button>
         </div>
         </form>
 
-        <div class="register-selected" id="register">
-            <form id="myregister" method="POST" class="form_register" id="form_register">
+        <div class="register-unselected" id="register">
+            <form method="POST" class="form_register" id="form_register">
                 <p class="naslov_login" id="naslov_register">REGISTER</p>
                 <label class="label_login" id="label_name_r">Name:</label>
                 <input type="text" class="input_register" id="name"></input>
@@ -57,8 +59,9 @@
                 <input type="password" class="input_register" id="passwordregister"></input>
 
                 <button type="submit" class="register_button" id="register_submit">REGISTER</button>
-                <button class="register-button-unselected" id="register-button-unselected" onclick="shrani2(), izbira_prijave()">REGISTER</button>
+                
             </form>
+            <button class="register-button-unselected" id="register-button-unselected" onclick="shrani2()">REGISTER</button>
         </div>
 
     </div>
