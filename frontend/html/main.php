@@ -2,7 +2,7 @@
 session_start();
 include '../../backend/baza.php';
 $idUporabnika = $_SESSION['idUporabnika'];
-$sql = "SELECT * FROM task WHERE $idUporabnika = Uporabnik_idUporabnik";
+$sql = "SELECT * FROM Task WHERE $idUporabnika = Uporabnik_idUporabnik";
 $result = $db->query($sql);
 $rows = $result->fetchall(PDO::FETCH_ASSOC);
 ?>
@@ -21,40 +21,54 @@ $rows = $result->fetchall(PDO::FETCH_ASSOC);
 <body>
     <header class="header">
         <header>
-            <p class="naslov">TaskNest</p> <button class="logoutButton">Log out</button>
+            <p class="naslov">TaskNest</p> <form action="../../backend/logout.php" method="POST"><button class="logoutButton">Log out</button></form>
         </header>
     </header>
+
+    <!--DODAJANJE NOVEGA TASKA UPORABNIKU-->
+    <div class="add_task">
+        <form action="new_task.php" method="POST">
+            <button type="submit" class="add_task_button" action="new_task.php">ADD TASK</button>
+        </form>
+    </div>
+
     <div class="body_task">
-        <!--DODAJANJE NOVEGA TASKA UPORABNIKU-->
-        <div class="add_task">
-            <a href="new_task.html" class="new_t_link">
-                <div class="new_t">NEW TASK</div>
-            </a>
-        </div>
 
         <!--IZPIS VSEH TASKOV DOLOCENEGA UPORABNIKA-->
         <?php
         foreach ($rows as $row) {
             echo "
             <div class='task'>
-                <div class=\"task_naslov\">"
-                .  $row['naslov'] .
-                "</div>
-                <div class=\"datum_zacetek\">"
-                . $row['datumVpisa'] .
-                "</div>
-                <div class=\"datum_konec\">"
-                . $row['datumKonca'] .
-                "</div>
-                <div class=\"tip\">"
-                . $row['naslov'] .
-                "</div>
-                <div class=\"opis\">"
-                . $row['opis'] .
-                "</div>
+                <div class=\"task_inner\">
+                    <div class=\"podatki\">
+                        <div class=\"task_naslov\">"
+                            .  $row['naslov'] .
+                        "</div>
+                        <div class=\"tip\">"
+                        . $row['TipTaska_idTipTaska'] .
+                        "</div>
+                        <div class=\"opis\">"
+                        . $row['opis'] .
+                        "</div>
+                    </div>
+                <div class=\"datumi\">
+                    <div class=\"datum_zacetek\">
+                        <p class=\"datum_z_txt\">Last interaction: </p>"
+                        . $row['datumVpisa'] .
+                    "</div>
+                    <div class=\"datum_konec\">
+                        <p class=\"datum_k_txt\">Complete until:  </p>"
+                        . $row['datumKonca'] .
+                    "</div>
+                    <div class=\"task_gumbi\">
+                        <form class=\"form_delete\" action=\"../../backend/delete.php\" method=\"POST\">
+                            <button class=\"delete_t\" name=\"task_id\" value=\"" . $row['idTask'] . "\">COMPLETED</button>
+                        </form>
+                    </div>
+                </div>
+                </div>
             </div>";
         } ?>
     </div>
 </body>
-
 </html>
