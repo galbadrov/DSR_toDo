@@ -11,13 +11,19 @@
         $stmt->bindParam(':username', $username);
         $stmt->bindParam(':password', $password);
         $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
         }catch (PDOException $e) {
             echo "Napaka: " . $e->getMessage();
         }
+
+        $idUporabnika = $row['idUporabnik'];
         
-        if($stmt->rowCount() > 0) {
+        
+        if($row) {
             session_start();
+            $_SESSION['idUporabnika'] = $idUporabnika;  
             $_SESSION['username'] = $username;
+            $_SESSION['password'] = $password;
             header("Location: http://localhost:8888/frontend/html/main.php");
             exit; 
         }else {

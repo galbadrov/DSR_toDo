@@ -1,3 +1,12 @@
+<?php 
+    session_start();
+    include '../../backend/baza.php';
+    $idUporabnika = $_SESSION['idUporabnika'];
+    $sql = "SELECT * FROM task WHERE $idUporabnika = Uporabnik_idUporabnik" ; 
+    $result = $db->query($sql);
+    $row = $result->fetch(PDO::FETCH_ASSOC);
+    echo "Id prijavljenega uporabnika: ".$idUporabnika;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
