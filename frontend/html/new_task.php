@@ -11,53 +11,28 @@
 </head>
 
 <body>
-  <div class="new_form">
-    <div class="container mt-5">
-      <div class="row mb-3">
-        <div class="col-md-6">
-          <label for="inputEmail4" class="form-label">Email</label>
-          <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-        </div>
-        <div class="col-md-6">
-          <label for="inputPassword4" class="form-label">Password</label>
-          <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-        </div>
-      </div>
-      <div class="mb-3">
-        <label for="inputAddress" class="form-label">Address</label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-      </div>
-      <div class="mb-3">
-        <label for="inputAddress2" class="form-label">Address 2</label>
-        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-      </div>
-      <div class="row mb-3">
-        <div class="col-md-6">
-          <label for="inputCity" class="form-label">City</label>
-          <input type="text" class="form-control" id="inputCity">
-        </div>
-        <div class="col-md-4">
-          <label for="inputState" class="form-label">State</label>
-          <select id="inputState" class="form-select">
-            <option selected>Choose...</option>
-            <option>...</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <label for="inputZip" class="form-label">Zip</label>
-          <input type="text" class="form-control" id="inputZip">
-        </div>
-      </div>
-      <div class="mb-3">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="gridCheck">
-          <label class="form-check-label" for="gridCheck">
-            I ACCEPT
-          </label>
-        </div>
-      </div>
-      <button type="submit" class="btn btn-primary">CREATE TASK</button>
+  <header>
+    <p class="naslov">Duties await</p>
+  </header>
+  <form action="../../backend/create_task.php" method="POST">
+    <div class="form_body">
+      <label for="naslov" class="label label-top">Title</label>
+      <input type="text" class="input" id="naslov" name="naslov"></input>
+
+      <label for="tipTaska" class="label">Type</label>
+      <input type="dropdown" class="input" id="tipTaska" name="tipTaska"></input>
+
+      <label for="datumKonca" class="label">Deadline</label>
+      <input type="text" id="datumKonca"  class="input" name="datumKonca" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}" inputmode="numeric">
+
+      <label for="opis" class="label">Description</label>
+      <input type="text" class="input input-opis" id="opis" name="opis"></input>
+
+
+
+    <button type="submit" class="add_task_button">ADD TASK</button>
     </div>
+  </form>
 </body>
 
 </html>
