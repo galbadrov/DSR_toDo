@@ -28,15 +28,38 @@ header{
     transform: translateX(-50%);
 }
 
+.naziv{
+    color: white;
+    font-size: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
 .logoutButton{
     background-color: white;
     color: black;
     font-family: Georgia, 'Times New Roman', Times, serif;
     width: 80px;
-    height:50px;
+    height: 50px;
+    font-size: 13px;
+}
+
+.logoutButton-form{
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
     margin-right: 30px; /* 30px od desnega roba */
     position: absolute; /* Absolutno pozicioniran */
     right: 0;
+    width: 10%;
+    height: 100%;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+
 }
 
 /* design za prikaz dela za izbiranje dodajanja taska*/
@@ -89,8 +112,9 @@ header{
 
 .task_naslov{
     width: 50%;
-    font-size: 250%;
+    font-size: 200%;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 20px;
 }
 
 /* podatki */
@@ -102,6 +126,7 @@ header{
 .tip{
     margin-bottom: 20px;
     font-size: 130%;
+    margin-bottom: 30px;
 }
 
 

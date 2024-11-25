@@ -2,7 +2,13 @@
 session_start();
 include '../../backend/baza.php';
 $idUporabnika = $_SESSION['idUporabnika'];
-$sql = "SELECT * FROM Task WHERE $idUporabnika = Uporabnik_idUporabnik";
+$username = $_SESSION['username'];
+$sql = "SELECT * FROM Task 
+INNER JOIN TipTaska 
+ON Task.TipTaska_idTipTaska = TipTaska.idTipTaska
+WHERE Task.Uporabnik_idUporabnik = $idUporabnika";
+
+
 $result = $db->query($sql);
 $rows = $result->fetchall(PDO::FETCH_ASSOC);
 ?>
@@ -21,7 +27,11 @@ $rows = $result->fetchall(PDO::FETCH_ASSOC);
 <body>
     <header class="header">
         <header>
-            <p class="naslov">TaskNest</p> <form action="../../backend/logout.php" method="POST"><button class="logoutButton">Log out</button></form>
+            <p class="naslov">TaskNest</p> 
+            <form action="../../backend/logout.php" method="POST" class="logoutButton-form">
+                <p class="naziv"><?php echo "Welcome ". $username ?></p>
+                <button class="logoutButton">LOG OUT</button>
+            </form>
         </header>
     </header>
 
