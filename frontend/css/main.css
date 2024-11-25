@@ -3,6 +3,57 @@ body{
     padding:0;
     min-height: 100vh;
     height: 100%;
-    background-image: linear-gradient(rgb(153, 149, 149), rgb(131, 170, 255));
-    background-repeat: no-repeat;
+    background-color: white;
+}
+
+/* header nastavitve */
+header{
+    padding:0;
+    margin: 0;
+    height: 15vh;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center; /* Postavi glavni vsebinski tok v center */
+    align-items: center;
+    position: relative;
+}
+
+.naslov{
+    color: white;
+    font-size: 50px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logoutButton{
+    background-color: white;
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width: 80px;
+    height:50px;
+    margin-right: 30px; /* 30px od desnega roba */
+    position: absolute; /* Absolutno pozicioniran */
+    right: 0;
+}
+
+/* design za izpis taskov */
+
+.body_task{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.task{
+    background-color: black;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width: 80%;
+    height: 30%;
+    padding: 0;
+    margin-bottom: 30px;
+    display: flex
 }
