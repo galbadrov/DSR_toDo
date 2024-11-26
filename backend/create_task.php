@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $_SESSION['idUporabnika'];
 
 
-    $sql = "INSERT INTO Task (naslov, datumKonca, opis, TipTaska_idTipTaska, Uporabnik_idUporabnika) VALUES 
+    $sql = "INSERT INTO Task (naslov, datumKonca, opis, TipTaska_idTipTaska, Uporabnik_idUporabnik) VALUES 
         (:naslov, :datumKonca, :opis, :tipTaska, :user)";
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':naslov', $naslov);
@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bindParam(':tipTaska', $tipTaska);
     $stmt->bindParam(':user', $user);
     $stmt->execute();
+    header('Location: ../frontend/html/main.php');
 } else {
     header('Location: ../html/new_task.php');
 }
