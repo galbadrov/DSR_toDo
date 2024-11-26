@@ -15,11 +15,10 @@
         }catch (PDOException $e) {
             echo "Napaka: " . $e->getMessage();
         }
-
-        $idUporabnika = $row['idUporabnik'];
         
         
         if($row) {
+            $idUporabnika = $row['idUporabnik'];
             session_start();
             $_SESSION['idUporabnika'] = $idUporabnika;  
             $_SESSION['username'] = $username;
@@ -27,7 +26,7 @@
             header("Location: http://localhost:8888/frontend/html/main.php");
             exit; 
         }else {
-            header("Location: http://localhost:8888/frontend/html/index.php");
+            header("Location: http://localhost:8888/frontend/html/index.php?sporocilo=". urlencode("Napacno uporabnisko ime ali geslo"));
             exit;
         }
     }

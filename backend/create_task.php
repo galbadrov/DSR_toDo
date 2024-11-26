@@ -1,6 +1,8 @@
 <?php
 include 'baza.php';
 
+session_start();
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //pridobivanje podatkov
     $naslov = $_POST['naslov'];

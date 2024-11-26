@@ -33,9 +33,14 @@
 
                 <label class="label_login" id="label_password">Password:</label>
                 <input type="password" class="input_login" id="password" name="password"></input>
+                <p><?php
+                    if (isset($_GET["sporocilo"])) {
+                        echo $_GET["sporocilo"];
+                    }
+                    ?></p>
 
                 <button type="submit" class="login_button" id="login_submit">LOG IN</button>
-                
+
             </form>
             <button class="login-button-unselected" id="login-button-unselected" onclick="shrani1()">LOG IN</button>
         </div>
@@ -59,7 +64,7 @@
                 <input type="password" class="input_register" id="passwordregister" name="passwordregister"></input>
 
                 <button type="submit" class="register_button" id="register_submit">REGISTER</button>
-                
+
             </form>
             <button class="register-button-unselected" id="register-button-unselected" onclick="shrani2()">REGISTER</button>
         </div>
