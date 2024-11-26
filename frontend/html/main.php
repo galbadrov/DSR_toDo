@@ -55,7 +55,7 @@ $rows = $result->fetchall(PDO::FETCH_ASSOC);
                             .  $row['naslov'] .
                         "</div>
                         <div class=\"tip\">"
-                        . $row['TipTaska_idTipTaska'] .
+                        . $row['tipTaska'] .
                         "</div>
                         <div class=\"opis\">"
                         . $row['opis'] .
