@@ -72,5 +72,14 @@ include '../../backend/fetchTasks.php';
         } 
         ?>
     </div>
+    <footer>
+        <div class="container_footer">
+            <hr class="footer_hr">
+            <p class="footer_text1">TASK NEST</p>
+            <hr class="footer_hr">
+        </div>
+        <div class="footer_text">&copy; 2024 TaskNest. All rights reserved.</div>
+        <div class="footer_text">- Gal Badrov -</div>
+    </footer>
 </body>
 </html>
