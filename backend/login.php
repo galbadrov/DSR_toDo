@@ -3,7 +3,7 @@
 
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $username = $_POST['username'];
-        $password = $_POST['password'];
+        $password = SHA1($_POST['password']); //preverjanje hashiranega gesla
 
         try{
         $sql = "SELECT * FROM Uporabnik WHERE uporabniskoIme = :username AND geslo = :password";

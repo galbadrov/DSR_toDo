@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $surname = $_POST['surname'];
     $email = $_POST['email'];
     $username_register = $_POST['username_register'];
-    $passwordregister = $_POST['passwordregister'];
+    $passwordregister = SHA1($_POST['passwordregister']); // varno shranjevanje hashiranega gesla
 
     try {
         $sql = "INSERT INTO Uporabnik (ime, priimek, gmail, geslo, uporabniskoIme) VALUES (:name, :surname, :email, :password, :username)";
