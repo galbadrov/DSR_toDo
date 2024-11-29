@@ -20,17 +20,28 @@
       <input type="text" class="input" id="naslov" name="naslov"></input>
 
       <label for="tipTaska" class="label">Type</label>
-      <input type="dropdown" class="input" id="tipTaska" name="tipTaska"></input>
+      <?php
+        include '../../backend/fetchTipTaska.php';
+      ?>
+      <?php
+      echo "<fieldset class=\"input\">";
+        foreach ($rows as $tip) {
+          echo "<input type=\"radio\" id=\"tipTaska\" value=\"" . $tip["idTipTaska"] . "\" name=\"tipTaska\"/><label for=\"tipTaska\">" . $tip["tipTaska"] . "</label>";
+        }
+      echo "</fieldset >";
+      ?>
+
+      <!--<input type="text" class="input" id="tipTaska" name="tipTaska"></input>-->
 
       <label for="datumKonca" class="label">Deadline</label>
-      <input type="text" id="datumKonca"  class="input" name="datumKonca" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}" inputmode="numeric">
+      <input type="text" id="datumKonca" class="input" name="datumKonca" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}" inputmode="numeric">
 
       <label for="opis" class="label">Description</label>
       <input type="text" class="input input-opis" id="opis" name="opis"></input>
 
 
 
-    <button type="submit" class="add_task_button">ADD TASK</button>
+      <button type="submit" class="add_task_button">ADD TASK</button>
     </div>
   </form>
 </body>

@@ -1,5 +1,5 @@
 <!-- za zagon spletne strani: http://localhost:8888/frontend/html/[index.PHP] -->
-<!-- za pregled backend aplikacij: http://localhost:8888/backend/[baza.php] -->
+
 <?php include '../../backend/baza.php'; ?>
 
 <!DOCTYPE html>
