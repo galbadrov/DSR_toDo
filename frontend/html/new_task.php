@@ -22,13 +22,15 @@
       <label for="tipTaska" class="label">Type</label>
       <?php
         include '../../backend/fetchTipTaska.php';
-      ?>
-      <?php
-      echo "<fieldset class=\"input\">";
+
+      echo "
+      <div class= \"bodyTipTaska\">
+        <fieldset id=\"StyletipTaska\" class=\"input\">";
         foreach ($rows as $tip) {
-          echo "<input type=\"radio\" id=\"tipTaska\" value=\"" . $tip["idTipTaska"] . "\" name=\"tipTaska\"/><label for=\"tipTaska\">" . $tip["tipTaska"] . "</label>";
+          echo "<input type=\"radio\" id=\"tipTaska\" value=\"" . $tip["idTipTaska"] . "\" name=\"tipTaska\"/><label class=\"labelForTip\" for=\"tipTaska\">" . $tip["tipTaska"] . "</label>";
         }
-      echo "</fieldset >";
+      echo "</fieldset >
+      </div>";
       ?>
 
       <!--<input type="text" class="input" id="tipTaska" name="tipTaska"></input>-->

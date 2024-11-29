@@ -60,6 +60,29 @@ header{
     vertical-align: top;
 }
 
+.bodyTipTaska{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 90%;
+}
+
+#StyletipTaska{
+    font-size: 15px;
+    width:100%;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+    gap: 10px;
+}
+
+.labelForTip{
+    margin-right: 20px;
+}
 
 /* gumb stil */
 
