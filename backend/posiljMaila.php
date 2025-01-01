@@ -4,9 +4,6 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-//require 'Exception.php';
-//require 'PHPMailer.php';
-//require 'SMTP.php';
 require 'PHPMailer/Exception.php';
 require 'PHPMailer/PHPMailer.php';
 require 'PHPMailer/SMTP.php';
@@ -15,17 +12,17 @@ require 'PHPMailer/SMTP.php';
 $mail = new PHPMailer();
 
 $mail->IsSMTP();
-
 $mail->CharSet = 'UTF-8';
 $mail->Host       = "smtp.gmail.com";
-$mail->SMTPDebug  = 3;
+$mail->SMTPDebug  = 2;
 $mail->SMTPAuth   = true;
 $mail->Port       = 587;
+$mail->SMTPSecure = "tls";
 
 //kdo posilja
 //moj email --> od strani
 //task.nest.dsr@gmail.com
-//passowrd: Tasknestdsr
+//passowrd: geslo aplikacije --> bilo ustvarjeno: gere vfwu phos szad
 
 $mail->Username = 'task.nest.dsr@gmail.com';
 $mail->Password = 'gere vfwu phos szad';
@@ -39,7 +36,7 @@ $mail->setFrom('task.nest.dsr@gmail.com', 'Gal Badrov');
 $email = $_POST['email'];
 $name = $_POST['name'];
 $surname = $_POST['surname'];
-echo("$email");
+
 $mail->addAddress("$email", "$name $surname");
 $mail->isHTML(true);
 
@@ -48,12 +45,13 @@ $mail->isHTML(true);
 $mail->Subject = 'WELCOME TO TASK NEST';
 
 //text v mailu
-$mail->Body    = "Hello mr. $name $surname,\n
-Someone created account using this e-mail. If this was you, we are happy to see you joining our website. \n
-If this was not you, please ignore this message. \n
-This is automatic message, so <b>do not reply</b>. \n
-Best regards, \n
-<b>Task Nest</b> \n";
+$mail->Body    = "Hello mr. $name $surname, <br>
+Someone created account using this e-mail. <br>
+If this was you, we are happy to see you joining our website. <br>
+If this was not you, please ignore this message. <br>
+This is automatic message, so do <b>not reply</b>. <br>
+Best regards, <br><br>
+<b>Task Nest</b>";
 
 $mail->AltBody = "Hello mr. $name $surname,\n
 Someone created account using this e-mail. If this was you, we are happy to see you joining our website. \n
@@ -61,8 +59,6 @@ If this was not you, please ignore this message. \n
 This is automatic message, so do not reply. \n
 Best regards, \n
 Task Nest \n";
-
-echo("zacenjanje posiljanja");
 
 //posljemo message, preverimo za napake
 try {
