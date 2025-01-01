@@ -35,7 +35,9 @@
                 <input type="password" class="input_login" id="password" name="password"></input>
                 <p><?php
                     if (isset($_GET["sporocilo"])) {
-                        echo $_GET["sporocilo"];
+                        if($_GET["sporocilo"] == "Napacno uporabnisko ime ali geslo"){
+                            echo $_GET["sporocilo"];
+                        }
                     }
                     ?></p>
 
@@ -55,13 +57,34 @@
                 <input type="text" class="input_register" id="surname" name="surname"></input>
 
                 <label class="label_login" id="label_email_r">Email:</label>
-                <input type="email" class="input_register" id="email" name="email"></input>
+                <input type="text" class="input_register" id="email" name="email"></input>
+                <p class="opozorila"><?php
+                    if (isset($_GET["sporocilo"])) {
+                        if($_GET["sporocilo"] == "Entered email is not valid! Email must be structured as: [name]@[domain]"){
+                            echo $_GET["sporocilo"];
+                        }
+                    }
+                    ?></p>
 
                 <label class="label_login" id="label_username_r">Username:</label>
                 <input type="text" class="input_register" id="username_register" name="username_register"></input>
+                <p class="opozorila"><?php
+                    if (isset($_GET["sporocilo"])) {
+                        if($_GET["sporocilo"] == "Entered username is not valid! Username can only contain letters, numbers and underscores."){
+                            echo $_GET["sporocilo"];
+                        }
+                    }
+                    ?></p>
 
                 <label class="label_login" id="label_password_r">Password:</label>
                 <input type="password" class="input_register" id="passwordregister" name="passwordregister"></input>
+                <p class="opozorila"><?php
+                    if (isset($_GET["sporocilo"])) {
+                        if($_GET["sporocilo"] == "Entered password is not valid! Password must be at least 10 characters long."){
+                            echo $_GET["sporocilo"];
+                        }
+                    }
+                    ?></p>
 
                 <button type="submit" class="register_button" id="register_submit">REGISTER</button>
 

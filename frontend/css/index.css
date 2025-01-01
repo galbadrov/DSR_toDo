@@ -245,7 +245,7 @@ footer{
     width: 35%;
     height: 5%;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    margin-bottom: 4%;
+    margin-bottom: 3%;
 }
 
 .register_button{
@@ -273,4 +273,10 @@ footer{
 .register-button-unselected:hover{
     background-color: rgb(187, 187, 187);
     cursor: pointer;
+}
+
+/*   za prikaz opozoril pri registraciji    */
+.opozorila{
+    margin-top:0;
+    padding-top:0;
 }
