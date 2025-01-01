@@ -13,6 +13,8 @@ include '../../backend/fetchTasks.php';
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>To Do</title>
     <link rel="stylesheet" href="../css/main.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <!-- za animacije -->
 </head>
 
 <body>
@@ -27,19 +29,20 @@ include '../../backend/fetchTasks.php';
     </header>
 
     <!--DODAJANJE NOVEGA TASKA UPORABNIKU-->
-    <div class="add_task">
-        <form action="new_task.php" method="POST">
-            <button type="submit" class="add_task_button" action="new_task.php">ADD TASK</button>
-        </form>
+    <div data-aos="zoom-in-up" data-aos-duration="700" data-aos-offset="50">
+        <div class="add_task">
+            <form action="new_task.php" method="POST">
+                <button type="submit" class="add_task_button" action="new_task.php">ADD TASK</button>
+            </form>
+        </div>
     </div>
-
     <div class="body_task">
 
         <!--IZPIS VSEH TASKOV DOLOCENEGA UPORABNIKA-->
         <?php
         foreach ($rows as $row) {
             echo "
-            <div class='task'>
+        <div class='task' data-aos=\"fade-right\" data-aos-delay=\"400\">
                 <div class=\"task_inner\">
                     <div class=\"podatki\">
                         <div class=\"task_naslov\">"
@@ -68,7 +71,7 @@ include '../../backend/fetchTasks.php';
                     </div>
                 </div>
                 </div>
-            </div>";
+        </div>";
         } 
         ?>
     </div>
@@ -81,5 +84,13 @@ include '../../backend/fetchTasks.php';
         <div class="footer_text">&copy; 2024 TaskNest. All rights reserved.</div>
         <div class="footer_text">- Gal Badrov -</div>
     </footer>
+
+    <script>
+    AOS.init({
+        duration: 1000, // Trajanje animacije v milisekundah
+        easing: 'ease-in-out', // Učinek animacije
+        once: true // Animacija se sproži le ob prvem skrolanju
+    });
+</script>
 </body>
 </html>
