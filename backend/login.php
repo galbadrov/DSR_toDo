@@ -26,7 +26,7 @@
             header("Location: http://localhost:8888/frontend/html/main.php");
             exit; 
         }else {
-            header("Location: http://localhost:8888/frontend/html/index.php?sporocilo=". urlencode("Napacno uporabnisko ime ali geslo"));
+            header("Location: http://localhost:8888/frontend/html/index.php?sporocilo=". urlencode("Wrong username or password!"));
             exit;
         }
     }

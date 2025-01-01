@@ -35,7 +35,7 @@
                 <input type="password" class="input_login" id="password" name="password"></input>
                 <p><?php
                     if (isset($_GET["sporocilo"])) {
-                        if($_GET["sporocilo"] == "Napacno uporabnisko ime ali geslo"){
+                        if($_GET["sporocilo"] == "Wrong username or password!"){
                             echo $_GET["sporocilo"];
                         }
                     }

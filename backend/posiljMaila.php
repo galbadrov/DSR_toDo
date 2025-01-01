@@ -45,7 +45,7 @@ $mail->isHTML(true);
 $mail->Subject = 'WELCOME TO TASK NEST';
 
 //text v mailu
-$mail->Body    = "Hello mr. $name $surname, <br>
+$mail->Body    = "Hello $name $surname, <br>
 Someone created account using this e-mail. <br>
 If this was you, we are happy to see you joining our website. <br>
 If this was not you, please ignore this message. <br>
@@ -53,7 +53,7 @@ This is automatic message, so do <b>not reply</b>. <br>
 Best regards, <br><br>
 <b>Task Nest</b>";
 
-$mail->AltBody = "Hello mr. $name $surname,\n
+$mail->AltBody = "Hello $name $surname,\n
 Someone created account using this e-mail. If this was you, we are happy to see you joining our website. \n
 If this was not you, please ignore this message. \n
 This is automatic message, so do not reply. \n

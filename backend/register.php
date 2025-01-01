@@ -2,7 +2,7 @@
 require 'baza.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if(preg_match('/[\w\.]@[\w-]\.[\w]/', $_POST['email'])){
+    if(preg_match('/^[\w\-\.]+@([\w-]+\.)+[\w-]{2,4}$/', $_POST['email'])){
         if(preg_match('/[\w]/', $_POST['username_register'])){
             if(preg_match('/.{10,}/', $_POST['passwordregister'])){
                 $name = $_POST['name'];
