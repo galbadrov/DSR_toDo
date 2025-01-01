@@ -23,6 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } catch (PDOException $e) {
         echo "Napaka: " . $e->getMessage();
     }
+    include './posiljMaila.php';
 } else {
     echo "Podatki niso popolni!";
 }
+
+?>
